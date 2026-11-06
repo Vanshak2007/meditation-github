@@ -1,0 +1,2400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serenity | Mind & Brain Wellness</title>
+
+<style>
+/* =========================
+   1. GLOBAL DESIGN
+========================= */
+:root {
+    --navy: #17243b;
+    --purple: #7957d5;
+    --lavender: #eee8ff;
+    --teal: #58c7b2;
+    --mint: #e1f7ee;
+    --coral: #ff8f83;
+    --cream: #fbf8f3;
+    --text: #29364a;
+    --muted: #778297;
+    --white: #ffffff;
+    --border: #e8e7ef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 95px;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input {
+    font: inherit;
+}
+
+.container {
+    width: min(1160px, 90%);
+    margin: auto;
+}
+
+section {
+    padding: 85px 0;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(30px, 4vw, 44px);
+    letter-spacing: -1.5px;
+}
+
+p {
+    color: var(--muted);
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--purple);
+    background: var(--lavender);
+    border-radius: 50px;
+    padding: 6px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 17px;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 42px;
+}
+
+.section-heading p {
+    margin-top: 15px;
+}
+
+.gradient-text {
+    background: linear-gradient(
+        110deg, #7957d5, #35a997, #ee8a84
+    );
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 23px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--purple);
+    color: white;
+    box-shadow: 0 9px 24px #7957d52d;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background: #6240bb;
+}
+
+.btn-light {
+    border: 1px solid var(--border);
+    background: white;
+}
+
+.btn-light:hover {
+    background: var(--lavender);
+}
+
+/* =========================
+   2. NAVIGATION
+========================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251,248,243,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid #e8e7efaa;
+}
+
+nav {
+    min-height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    color: var(--navy);
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: bold;
+    color: #687287;
+}
+
+.nav-links a:hover {
+    color: var(--purple);
+}
+
+.nav-links .nav-cta {
+    background: var(--navy);
+    color: white;
+    padding: 10px 17px;
+    border-radius: 30px;
+}
+
+/* =========================
+   3. HERO
+========================= */
+.hero {
+    position: relative;
+    padding: 80px 0 90px;
+    background:
+        radial-gradient(ellipse at 85% 20%, #ded3ff 0%, transparent 32%),
+        radial-gradient(ellipse at 10% 90%, #d8f4e8 0%, transparent 34%),
+        var(--cream);
+}
+
+/* Subtle paper-like texture */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.13;
+    pointer-events: none;
+    background-image: radial-gradient(#6e6680 0.5px, transparent 0.5px);
+    background-size: 9px 9px;
+}
+
+.hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.hero h1 {
+    color: var(--navy);
+    font-size: clamp(44px, 6vw, 72px);
+    letter-spacing: -3px;
+    margin-bottom: 23px;
+}
+
+.hero h1 em {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+.hero-description {
+    max-width: 490px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 30px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.status-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--teal);
+    margin-right: 6px;
+}
+
+/* Floating neuroscience illustration */
+.hero-art {
+    min-height: 440px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.brain-stage {
+    position: relative;
+    width: 330px;
+    height: 330px;
+    border-radius: 48% 52% 53% 47%;
+    background: linear-gradient(145deg, #c9b8ff, #8a70db 55%, #54cbb5);
+    box-shadow: 0 30px 90px #7957d52d;
+    animation: float 6s ease-in-out infinite;
+}
+
+.brain-stage::before,
+.brain-stage::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid #ffffff85;
+}
+
+.brain-stage::before {
+    inset: 25px;
+}
+
+.brain-stage::after {
+    inset: 53px;
+}
+
+.brain-symbol {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 120px;
+    filter: drop-shadow(0 10px 10px #31205230);
+}
+
+.float-badge {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px #24243b15;
+    font-size: 12px;
+    font-weight: bold;
+    animation: badgeFloat 5s ease-in-out infinite;
+}
+
+.badge-one {
+    top: 30px;
+    left: 0;
+}
+
+.badge-two {
+    right: -5px;
+    top: 130px;
+    animation-delay: -2s;
+}
+
+.badge-three {
+    left: 10px;
+    bottom: 35px;
+    animation-delay: -3s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-13px) rotate(2deg); }
+}
+
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+/* =========================
+   4. DAILY RESET
+========================= */
+.reset-section {
+    background: var(--navy);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.reset-section::after {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: #7957d52a;
+    border-radius: 50%;
+    right: -100px;
+    bottom: -140px;
+    filter: blur(10px);
+}
+
+.reset-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+    gap: 55px;
+    position: relative;
+    z-index: 1;
+}
+
+.reset-section h2 {
+    margin-bottom: 16px;
+}
+
+.reset-section p {
+    color: #c2cce0;
+}
+
+.reset-label {
+    color: var(--teal);
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.reset-steps {
+    display: grid;
+    gap: 12px;
+}
+
+.reset-step {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 17px;
+    border: 1px solid #ffffff1c;
+    background: #ffffff09;
+    border-radius: 17px;
+    transition: 0.3s;
+}
+
+.reset-step:hover {
+    background: #ffffff13;
+    transform: translateX(5px);
+}
+
+.step-number {
+    min-width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    background: #ffffff14;
+    border-radius: 13px;
+    color: var(--teal);
+    font-weight: bold;
+}
+
+.reset-step strong {
+    display: block;
+    color: white;
+    font-size: 14px;
+}
+
+.reset-step small {
+    display: block;
+    color: #c2cce0;
+    font-size: 12px;
+}
+
+/* =========================
+   5. MOOD SELECTOR
+========================= */
+.mood-section {
+    background: white;
+}
+
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+}
+
+.mood-option,
+.hobby-option,
+.practice-option {
+    position: relative;
+}
+
+.mood-option input,
+.hobby-option input,
+.practice-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.mood-card {
+    display: block;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    text-align: center;
+    padding: 26px 12px;
+    transition: 0.3s;
+    background: white;
+}
+
+.mood-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px #17243b0d;
+}
+
+.mood-emoji {
+    display: block;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.mood-card strong {
+    display: block;
+    color: var(--navy);
+}
+
+.mood-card small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.mood-option input:checked + .mood-card {
+    background: var(--lavender);
+    border-color: var(--purple);
+    box-shadow: 0 0 0 2px #7957d515;
+}
+
+.mood-option input:focus-visible + .mood-card,
+.hobby-option input:focus-visible + .hobby-card,
+.practice-option input:focus-visible + .practice-card {
+    outline: 3px solid var(--teal);
+    outline-offset: 3px;
+}
+
+/* =========================
+   6. BIOLOGY / NERVOUS SYSTEM
+========================= */
+.biology-section {
+    background:
+        radial-gradient(ellipse at 0% 0%, #e6dcff 0%, transparent 35%),
+        #f8f6ff;
+}
+
+.biology-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.bio-card {
+    padding: 28px;
+    border: 1px solid #e4e0f0;
+    border-radius: 23px;
+    background: rgba(255,255,255,0.86);
+    transition: 0.3s;
+}
+
+.bio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px #41336e10;
+}
+
+.bio-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+    border-radius: 17px;
+    margin-bottom: 20px;
+}
+
+.purple-bg { background: #eee8ff; }
+.mint-bg { background: #e0f8ed; }
+.coral-bg { background: #fff0ec; }
+
+.bio-card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+    color: var(--navy);
+}
+
+.bio-card p {
+    font-size: 14px;
+}
+
+.bio-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    margin-top: 17px;
+    font-weight: bold;
+    background: var(--lavender);
+    color: var(--purple);
+}
+
+/* Native HTML accordions */
+.science-note {
+    margin-top: 25px;
+    border: 1px solid #e4e0f0;
+    border-radius: 16px;
+    background: white;
+    padding: 17px 20px;
+}
+
+.science-note summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+.science-note p {
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* =========================
+   7. NEUROPLASTICITY LAB
+========================= */
+.neuro-section {
+    background: white;
+}
+
+.neuro-panel {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 40px;
+    align-items: center;
+    background: linear-gradient(130deg, #f0ebff, #e8faf4);
+    border-radius: 30px;
+    padding: 40px;
+    overflow: hidden;
+}
+
+.neuron-art {
+    min-height: 280px;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.neuron-circle {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d9fff2, #a9e5d7 50%, #a89ae9);
+    box-shadow: 0 0 0 20px #ffffff55, 0 0 0 40px #ffffff35;
+    display: grid;
+    place-items: center;
+    font-size: 80px;
+    animation: neuronPulse 4s ease-in-out infinite;
+}
+
+.neuron-label {
+    position: absolute;
+    background: white;
+    border-radius: 30px;
+    padding: 9px 13px;
+    font-size: 11px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px #17243b0b;
+}
+
+.neuron-label.top { top: 20px; left: 0; }
+.neuron-label.bottom { bottom: 20px; right: 0; }
+
+@keyframes neuronPulse {
+    0%, 100% { transform: scale(0.95); }
+    50% { transform: scale(1.05); }
+}
+
+.neuro-content h2 {
+    margin-bottom: 18px;
+}
+
+.neuro-content > p {
+    margin-bottom: 22px;
+    font-size: 14px;
+}
+
+.neuro-list {
+    list-style: none;
+    display: grid;
+    gap: 13px;
+}
+
+.neuro-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.check {
+    color: #258d78;
+    font-weight: bold;
+}
+
+.neuro-footnote {
+    margin-top: 23px;
+    font-size: 12px;
+    border-top: 1px solid #d9d5e8;
+    padding-top: 15px;
+}
+
+/* =========================
+   8. PERSONAL SESSION
+========================= */
+.personalise-section {
+    background: var(--cream);
+}
+
+.session-panel {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 36px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    box-shadow: 0 18px 55px #17243b08;
+}
+
+.form-title {
+    margin-bottom: 20px;
+}
+
+.form-title h3 {
+    font-size: 20px;
+    color: var(--navy);
+}
+
+.form-title p {
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin-bottom: 32px;
+}
+
+.practice-card {
+    display: block;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.practice-card:hover {
+    background: #faf8ff;
+}
+
+.practice-card strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.practice-card small {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.practice-option input:checked + .practice-card {
+    background: var(--lavender);
+    border-color: var(--purple);
+}
+
+.duration-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 17px 0 30px;
+}
+
+.duration-option {
+    position: relative;
+}
+
+.duration-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.duration-card {
+    display: block;
+    text-align: center;
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 13px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.duration-option input:checked + .duration-card {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+}
+
+.duration-option input:focus-visible + .duration-card {
+    outline: 3px solid var(--teal);
+    outline-offset: 3px;
+}
+
+.continue-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-radius: 30px;
+    padding: 15px;
+    background: linear-gradient(100deg, var(--purple), #5b78d8);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.continue-btn:hover {
+    filter: brightness(1.1);
+}
+
+/* =========================
+   9. HOBBY EXPLORER
+========================= */
+.hobby-section {
+    background: #eaf8f2;
+}
+
+.hobby-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.hobby-card {
+    display: block;
+    height: 100%;
+    padding: 24px;
+    background: white;
+    border: 1px solid #dcece4;
+    border-radius: 21px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px #244c3b10;
+}
+
+.hobby-emoji {
+    font-size: 34px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hobby-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.hobby-card p {
+    font-size: 13px;
+}
+
+.hobby-time {
+    display: inline-block;
+    color: #278a74;
+    background: #e4f8ee;
+    border-radius: 30px;
+    padding: 5px 11px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.hobby-option input:checked + .hobby-card {
+    border: 2px solid #2e9a7e;
+    background: #f5fffa;
+}
+
+.hobby-note {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 12px;
+}
+
+/* =========================
+   10. MINI WELLNESS TOOLKIT
+========================= */
+.toolkit-section {
+    background: white;
+}
+
+.toolkit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.tool-card {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.tool-card summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 23px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.tool-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.tool-card summary::after {
+    content: "+";
+    font-size: 24px;
+    color: var(--purple);
+}
+
+.tool-card[open] summary::after {
+    content: "−";
+}
+
+.tool-card summary:hover {
+    background: #faf8ff;
+}
+
+.tool-content {
+    padding: 0 23px 23px;
+}
+
+.tool-content p {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.tool-content ol,
+.tool-content ul {
+    padding-left: 20px;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.tool-content li {
+    margin-bottom: 7px;
+}
+
+/* =========================
+   11. SUPPORT MESSAGE
+========================= */
+.support-section {
+    padding: 70px 0;
+    background: linear-gradient(120deg, #f2eaff, #fff0eb);
+}
+
+.support-box {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.support-box h2 {
+    margin-bottom: 16px;
+}
+
+.support-box p {
+    max-width: 680px;
+    margin: 0 auto 25px;
+}
+
+.support-box .btn {
+    margin: 5px;
+}
+
+/* =========================
+   12. FOOTER
+========================= */
+footer {
+    background: var(--navy);
+    color: white;
+    padding: 45px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 35px;
+    padding-bottom: 30px;
+}
+
+footer .logo {
+    color: white;
+}
+
+.footer-about p {
+    color: #b8c4d7;
+    font-size: 13px;
+    margin-top: 12px;
+    max-width: 300px;
+}
+
+.footer-column h3 {
+    font-size: 14px;
+    margin-bottom: 13px;
+}
+
+.footer-column a {
+    display: block;
+    color: #b8c4d7;
+    font-size: 13px;
+    margin: 8px 0;
+}
+
+.footer-column a:hover {
+    color: var(--teal);
+}
+
+.footer-bottom {
+    border-top: 1px solid #ffffff1c;
+    padding-top: 20px;
+    color: #aebbd0;
+    font-size: 11px;
+}
+
+/* =========================
+   13. RESPONSIVE DESIGN
+========================= */
+@media (max-width: 900px) {
+    .hero-grid,
+    .reset-grid,
+    .neuro-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-art {
+        min-height: 390px;
+    }
+
+    .reset-grid {
+        gap: 30px;
+    }
+
+    .biology-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mood-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hobby-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-about {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 60px 0;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a:not(.nav-cta) {
+        display: none;
+    }
+
+    .nav-links .nav-cta {
+        font-size: 11px;
+        padding: 9px 12px;
+    }
+
+    .hero {
+        padding: 55px 0;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .hero-art {
+        min-height: 330px;
+    }
+
+    .brain-stage {
+        width: 235px;
+        height: 235px;
+    }
+
+    .brain-symbol {
+        font-size: 90px;
+    }
+
+    .badge-one {
+        top: 5px;
+        left: 0;
+    }
+
+    .badge-two {
+        right: 0;
+        top: 100px;
+    }
+
+    .badge-three {
+        bottom: 5px;
+        left: 0;
+    }
+
+    .float-badge {
+        font-size: 10px;
+        padding: 9px 11px;
+    }
+
+    .biology-grid,
+    .hobby-grid,
+    .toolkit-grid,
+    .practice-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .session-panel,
+    .neuro-panel {
+        padding: 23px 18px;
+    }
+
+    .duration-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .footer-about {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+
+
+/* =========================================================
+   14. CINEMATIC PAGE NAVIGATION & SECTION TRANSITIONS
+   Each top navigation button has its own visual entrance.
+========================================================= */
+:root {
+    --nav-height: 78px;
+}
+
+header {
+    transition: box-shadow .35s ease, background .35s ease;
+}
+
+header.nav-scrolled {
+    box-shadow: 0 12px 35px rgba(23, 36, 59, .09);
+}
+
+.nav-links {
+    flex-wrap: nowrap;
+}
+
+.nav-links .page-nav {
+    position: relative;
+    border: 0;
+    background: transparent;
+    color: #687287;
+    padding: 10px 2px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 800;
+    white-space: nowrap;
+    transition: color .25s ease, transform .25s ease;
+}
+
+.nav-links .page-nav::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 3px;
+    width: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--purple), var(--teal));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.nav-links .page-nav:hover {
+    color: var(--purple);
+    transform: translateY(-2px);
+}
+
+.nav-links .page-nav.active {
+    color: var(--navy);
+}
+
+.nav-links .page-nav.active::after,
+.nav-links .page-nav:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.nav-links .page-nav:focus-visible {
+    outline: 3px solid #58c7b277;
+    outline-offset: 5px;
+    border-radius: 8px;
+}
+
+/* Sections are grouped into four interactive page views. */
+main section[data-view] {
+    display: none;
+    opacity: 0;
+}
+
+main section[data-view].is-visible {
+    display: block;
+    opacity: 1;
+    will-change: opacity, transform, filter, clip-path;
+}
+
+/* Home: soft cinematic zoom with a warm glow. */
+body[data-active-page="home"] main section[data-view].is-visible {
+    animation: homeReveal .95s cubic-bezier(.16,1,.3,1) both;
+}
+
+@keyframes homeReveal {
+    0% { opacity: 0; transform: translateY(42px) scale(.94); filter: blur(13px); }
+    65% { opacity: 1; filter: blur(0); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+/* Brain & Body: a clean wave that sweeps in from the left. */
+body[data-active-page="brain"] main section[data-view].is-visible {
+    animation: brainReveal 1s cubic-bezier(.2,.85,.25,1) both;
+}
+
+@keyframes brainReveal {
+    0% { opacity: 0; transform: translateX(-58px) perspective(900px) rotateY(5deg); clip-path: inset(0 0 16% 0 round 34px); filter: blur(9px); }
+    70% { opacity: 1; clip-path: inset(0 0 0 0 round 0); filter: blur(0); }
+    100% { opacity: 1; transform: translateX(0) perspective(900px) rotateY(0); clip-path: inset(0); filter: blur(0); }
+}
+
+/* Neuroplasticity: neural pulse, sharpen and settle. */
+body[data-active-page="neuro"] main section[data-view].is-visible {
+    animation: neuroReveal 1.05s cubic-bezier(.17,.9,.25,1) both;
+}
+
+@keyframes neuroReveal {
+    0% { opacity: 0; transform: translateY(58px) scale(.91) rotateX(7deg); filter: blur(16px) saturate(.6); }
+    55% { opacity: 1; transform: translateY(-7px) scale(1.015) rotateX(0); filter: blur(0) saturate(1.25); }
+    100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0); filter: blur(0) saturate(1); }
+}
+
+/* Hobbies: an expanding creative spotlight. */
+body[data-active-page="hobbies"] main section[data-view].is-visible {
+    animation: hobbyReveal 1s cubic-bezier(.16,1,.3,1) both;
+}
+
+@keyframes hobbyReveal {
+    0% { opacity: 0; clip-path: circle(4% at 50% 48%); transform: scale(.97); filter: blur(10px); }
+    75% { opacity: 1; clip-path: circle(125% at 50% 48%); filter: blur(0); }
+    100% { opacity: 1; clip-path: circle(150% at 50% 48%); transform: scale(1); filter: blur(0); }
+}
+
+/* Smaller animated details make the selected page feel alive. */
+body[data-active-page="brain"] .bio-card {
+    animation: cardLiftIn .72s cubic-bezier(.2,.8,.2,1) both;
+}
+body[data-active-page="brain"] .bio-card:nth-child(2) { animation-delay: .08s; }
+body[data-active-page="brain"] .bio-card:nth-child(3) { animation-delay: .16s; }
+body[data-active-page="brain"] .bio-card:nth-child(4) { animation-delay: .24s; }
+body[data-active-page="brain"] .bio-card:nth-child(5) { animation-delay: .32s; }
+body[data-active-page="brain"] .bio-card:nth-child(6) { animation-delay: .40s; }
+
+@keyframes cardLiftIn {
+    from { opacity: 0; transform: translateY(28px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+body[data-active-page="neuro"] .neuron-circle {
+    animation: neuronArrival .9s cubic-bezier(.2,.8,.2,1) both, neuronPulse 4s ease-in-out 1s infinite;
+}
+
+@keyframes neuronArrival {
+    0% { opacity: 0; transform: scale(.45) rotate(-35deg); filter: blur(8px); }
+    70% { opacity: 1; transform: scale(1.12) rotate(7deg); filter: blur(0); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+body[data-active-page="hobbies"] .hobby-card {
+    animation: hobbyCardIn .7s cubic-bezier(.16,1,.3,1) both;
+}
+body[data-active-page="hobbies"] .hobby-option:nth-child(2) .hobby-card { animation-delay: .07s; }
+body[data-active-page="hobbies"] .hobby-option:nth-child(3) .hobby-card { animation-delay: .14s; }
+body[data-active-page="hobbies"] .hobby-option:nth-child(4) .hobby-card { animation-delay: .21s; }
+body[data-active-page="hobbies"] .hobby-option:nth-child(5) .hobby-card { animation-delay: .28s; }
+body[data-active-page="hobbies"] .hobby-option:nth-child(6) .hobby-card { animation-delay: .35s; }
+body[data-active-page="hobbies"] .hobby-option:nth-child(7) .hobby-card { animation-delay: .42s; }
+body[data-active-page="hobbies"] .hobby-option:nth-child(8) .hobby-card { animation-delay: .49s; }
+body[data-active-page="hobbies"] .hobby-option:nth-child(9) .hobby-card { animation-delay: .56s; }
+
+@keyframes hobbyCardIn {
+    from { opacity: 0; transform: translateY(35px) rotate(2deg) scale(.9); }
+    to { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
+}
+
+/* Full-screen transition veil with a page-specific color atmosphere. */
+.page-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    background: rgba(251, 248, 243, .12);
+    backdrop-filter: blur(0);
+}
+
+.page-transition::before,
+.page-transition::after {
+    content: "";
+    position: absolute;
+    width: min(42vw, 420px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.8);
+    transform: scale(.08);
+    opacity: 0;
+}
+
+.page-transition::after {
+    width: min(25vw, 250px);
+    border-width: 2px;
+}
+
+.page-transition.is-active {
+    visibility: visible;
+    opacity: 1;
+    animation: veilFade .72s ease both;
+}
+
+.page-transition.is-active::before {
+    animation: portalExpand .78s cubic-bezier(.16,1,.3,1) both;
+}
+
+.page-transition.is-active::after {
+    animation: portalExpand .68s .05s cubic-bezier(.16,1,.3,1) both;
+}
+
+.page-transition.to-home { background: radial-gradient(circle, #eee8ff 0%, #dff7ef 45%, rgba(251,248,243,.92) 100%); }
+.page-transition.to-brain { background: radial-gradient(circle, #d8fff1 0%, #b8e8dc 45%, rgba(23,36,59,.88) 100%); }
+.page-transition.to-neuro { background: radial-gradient(circle, #ded3ff 0%, #a99ae6 46%, rgba(23,36,59,.9) 100%); }
+.page-transition.to-hobbies { background: radial-gradient(circle, #fff0d9 0%, #d7f5e8 48%, rgba(251,248,243,.95) 100%); }
+
+.page-transition.to-home::before, .page-transition.to-home::after { border-color: #7957d5aa; }
+.page-transition.to-brain::before, .page-transition.to-brain::after { border-color: #58c7b2cc; }
+.page-transition.to-neuro::before, .page-transition.to-neuro::after { border-color: #ffffffcc; }
+.page-transition.to-hobbies::before, .page-transition.to-hobbies::after { border-color: #ffab85cc; }
+
+@keyframes veilFade {
+    0% { opacity: 0; backdrop-filter: blur(0); }
+    20%, 70% { opacity: 1; backdrop-filter: blur(13px); }
+    100% { opacity: 0; backdrop-filter: blur(0); }
+}
+
+@keyframes portalExpand {
+    0% { opacity: 0; transform: scale(.08) rotate(-25deg); }
+    35% { opacity: 1; }
+    100% { opacity: 0; transform: scale(4.8) rotate(35deg); }
+}
+
+@media (max-width: 900px) {
+    .nav-links { gap: 15px; }
+    .nav-links .page-nav { font-size: 12px; }
+}
+
+@media (max-width: 600px) {
+    header .container { width: 94%; }
+    nav { min-height: 72px; gap: 10px; }
+    .logo { font-size: 23px; flex: 0 0 auto; }
+    .nav-links {
+        min-width: 0;
+        flex: 1;
+        gap: 13px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        padding: 8px 2px;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links .page-nav { display: inline-flex; font-size: 11px; padding: 8px 0; }
+    .nav-links .nav-cta { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main section[data-view].is-visible,
+    body[data-active-page] .bio-card,
+    body[data-active-page] .neuron-circle,
+    body[data-active-page] .hobby-card,
+    .page-transition,
+    .page-transition::before,
+    .page-transition::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+</style>
+</head>
+
+<body data-active-page="home">
+
+<!-- NAVIGATION -->
+<header>
+    <div class="container">
+        <nav>
+            <a class="logo" href="#home">serenity<span>.</span></a>
+
+            <div class="nav-links" aria-label="Main navigation">
+                <button class="page-nav active" type="button" data-page-button="home" data-target="home" aria-pressed="true">Home</button>
+                <button class="page-nav" type="button" data-page-button="brain" data-target="biology" aria-pressed="false">Brain &amp; Body</button>
+                <button class="page-nav" type="button" data-page-button="neuro" data-target="neuroplasticity" aria-pressed="false">Neuroplasticity</button>
+                <button class="page-nav" type="button" data-page-button="hobbies" data-target="hobbies" aria-pressed="false">Hobbies</button>
+                <a class="nav-cta" href="#personalise">Start your journey ↗</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="page-transition" id="pageTransition" aria-hidden="true"></div>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section class="hero" id="home" data-view="home">
+    <div class="container hero-grid">
+
+        <div>
+            <span class="eyebrow">MIND • BODY • BRAIN</span>
+
+            <h1>
+                Your mind deserves
+                <em class="gradient-text">a little peace.</em>
+            </h1>
+
+            <p class="hero-description">
+                Explore your mood, understand your nervous system,
+                build mindful habits and discover hobbies that help
+                you make space for yourself in a busy world.
+            </p>
+
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#personalise">
+                    Design my session →
+                </a>
+
+                <a class="btn btn-light" href="#biology">
+                    Explore the science
+                </a>
+            </div>
+
+            <div class="hero-meta">
+                <span><span class="status-dot"></span>Start at your own pace</span>
+                <span>✦ No experience needed</span>
+            </div>
+        </div>
+
+        <div class="hero-art">
+
+            <div class="brain-stage">
+                <div class="brain-symbol">🧠</div>
+            </div>
+
+            <div class="float-badge badge-one">
+                <span>🌿</span> Mindful moments
+            </div>
+
+            <div class="float-badge badge-two">
+                <span>✨</span> Brain adaptability
+            </div>
+
+            <div class="float-badge badge-three">
+                <span>💜</span> Your personal reset
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- DAILY STRESS RESET -->
+<section class="reset-section" id="reset" data-view="home">
+    <div class="container reset-grid">
+
+        <div>
+            <div class="reset-label">YOUR 60-SECOND PAUSE</div>
+
+            <h2>Pause the rush.<br>Return to the present.</h2>
+
+            <p>
+                You do not need to fix everything at once.
+                Begin by noticing what is happening around you
+                and giving yourself one calm moment.
+            </p>
+        </div>
+
+        <div class="reset-steps">
+
+            <div class="reset-step">
+                <div class="step-number">01</div>
+                <div>
+                    <strong>Ground yourself</strong>
+                    <small>Feel your feet supported by the floor.</small>
+                </div>
+            </div>
+
+            <div class="reset-step">
+                <div class="step-number">02</div>
+                <div>
+                    <strong>Soften your breathing</strong>
+                    <small>Breathe comfortably without forcing deep breaths.</small>
+                </div>
+            </div>
+
+            <div class="reset-step">
+                <div class="step-number">03</div>
+                <div>
+                    <strong>Notice your surroundings</strong>
+                    <small>Name three things you can see or hear.</small>
+                </div>
+            </div>
+
+            <div class="reset-step">
+                <div class="step-number">04</div>
+                <div>
+                    <strong>Choose one small next step</strong>
+                    <small>Focus on what is manageable right now.</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- MOOD SELECTOR -->
+<section class="mood-section" id="mood" data-view="home">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">CHECK IN WITH YOURSELF</span>
+            <h2>What does your mind need today?</h2>
+            <p>
+                Choose a feeling without judging yourself.
+                Every mood is information, not a personal failure.
+            </p>
+        </div>
+
+        <div class="mood-grid">
+
+            <div class="mood-option">
+                <input type="radio" name="mood" id="mood-stressed" checked>
+                <label class="mood-card" for="mood-stressed">
+                    <span class="mood-emoji">🌪️</span>
+                    <strong>Stressed</strong>
+                    <small>Slow down</small>
+                </label>
+            </div>
+
+            <div class="mood-option">
+                <input type="radio" name="mood" id="mood-worried">
+                <label class="mood-card" for="mood-worried">
+                    <span class="mood-emoji">☁️</span>
+                    <strong>Overthinking</strong>
+                    <small>Find some space</small>
+                </label>
+            </div>
+
+            <div class="mood-option">
+                <input type="radio" name="mood" id="mood-tired">
+                <label class="mood-card" for="mood-tired">
+                    <span class="mood-emoji">🌙</span>
+                    <strong>Exhausted</strong>
+                    <small>Rest and recharge</small>
+                </label>
+            </div>
+
+            <div class="mood-option">
+                <input type="radio" name="mood" id="mood-calm">
+                <label class="mood-card" for="mood-calm">
+                    <span class="mood-emoji">🌈</span>
+                    <strong>Feeling okay</strong>
+                    <small>Stay present</small>
+                </label>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- BIOLOGY -->
+<section class="biology-section" id="biology" data-view="brain">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">THE BIOLOGY OF CALM</span>
+            <h2>What happens inside your body?</h2>
+            <p>
+                Stress is not just a thought. It can involve your brain,
+                nervous system, breathing, heart rate and muscles.
+                Understanding these connections can help you choose
+                useful coping strategies.
+            </p>
+        </div>
+
+        <div class="biology-grid">
+
+            <article class="bio-card">
+                <div class="bio-icon purple-bg">⚡</div>
+                <h3>Fight-or-flight response</h3>
+                <p>
+                    The sympathetic nervous system helps prepare your
+                    body for action. During stress, heart rate and
+                    breathing may increase, and muscles may tense.
+                </p>
+                <span class="bio-tag">SYMPATHETIC SYSTEM</span>
+            </article>
+
+            <article class="bio-card">
+                <div class="bio-icon mint-bg">🌿</div>
+                <h3>Rest-and-digest</h3>
+                <p>
+                    The parasympathetic nervous system supports functions
+                    such as digestion and recovery. Comfortable,
+                    unhurried breathing may help support relaxation.
+                </p>
+                <span class="bio-tag">PARASYMPATHETIC SYSTEM</span>
+            </article>
+
+            <article class="bio-card">
+                <div class="bio-icon coral-bg">🧪</div>
+                <h3>Stress hormones</h3>
+                <p>
+                    The body's stress response involves hormones
+                    such as adrenaline and cortisol. Relaxation
+                    practices may help manage stress, but they do
+                    not instantly switch off every stress response.
+                </p>
+                <span class="bio-tag">HORMONAL RESPONSE</span>
+            </article>
+
+            <article class="bio-card">
+                <div class="bio-icon mint-bg">🫁</div>
+                <h3>Breathing and the body</h3>
+                <p>
+                    Slow, comfortable breathing may support a
+                    relaxation response. Keep your breath natural
+                    and stop the exercise if you feel dizzy or uncomfortable.
+                </p>
+                <span class="bio-tag">BREATH AWARENESS</span>
+            </article>
+
+            <article class="bio-card">
+                <div class="bio-icon purple-bg">🎯</div>
+                <h3>Attention and awareness</h3>
+                <p>
+                    Mindfulness involves noticing thoughts, feelings
+                    and sensations, then gently bringing attention
+                    back to the present without harsh self-judgment.
+                </p>
+                <span class="bio-tag">MINDFUL ATTENTION</span>
+            </article>
+
+            <article class="bio-card">
+                <div class="bio-icon coral-bg">🌙</div>
+                <h3>Sleep and recovery</h3>
+                <p>
+                    A regular wind-down routine, relaxing activities
+                    and a consistent sleep schedule can support
+                    healthy rest and everyday functioning.
+                </p>
+                <span class="bio-tag">REST AND RECOVERY</span>
+            </article>
+
+        </div>
+
+        <details class="science-note">
+            <summary>Explore the science behind stress and relaxation</summary>
+            <p>
+                The autonomic nervous system regulates many automatic
+                body functions. The sympathetic and parasympathetic
+                branches have different but interacting roles.
+                Relaxation techniques can support wellbeing, although
+                the effects differ between people. Meditation should
+                complement, not replace, appropriate healthcare.
+            </p>
+        </details>
+
+    </div>
+</section>
+
+<!-- NEUROPLASTICITY -->
+<section class="neuro-section" id="neuroplasticity" data-view="neuro">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">YOUR BRAIN CAN ADAPT</span>
+            <h2>Welcome to the neuroplasticity lab</h2>
+            <p>
+                Learning is not limited to classrooms.
+                Repeated experiences and practice help the brain
+                adapt throughout life.
+            </p>
+        </div>
+
+        <div class="neuro-panel">
+
+            <div class="neuron-art">
+                <div class="neuron-circle">🧠</div>
+                <div class="neuron-label top">Practice builds skills</div>
+                <div class="neuron-label bottom">Learning takes time</div>
+            </div>
+
+            <div class="neuro-content">
+                <h2>Train a habit, not perfection.</h2>
+
+                <p>
+                    Neuroplasticity is the nervous system's ability
+                    to change its functioning and connections in
+                    response to experience, learning and practice.
+                    Meditation is one possible way to practise
+                    attention and awareness.
+                </p>
+
+                <ul class="neuro-list">
+                    <li>
+                        <span class="check">✓</span>
+                        <span><strong>Attention practice:</strong>
+                        notice when your mind wanders and gently
+                        return to your chosen focus.</span>
+                    </li>
+
+                    <li>
+                        <span class="check">✓</span>
+                        <span><strong>Emotional awareness:</strong>
+                        identify what you are feeling before
+                        deciding how to respond.</span>
+                    </li>
+
+                    <li>
+                        <span class="check">✓</span>
+                        <span><strong>Skill development:</strong>
+                        practise a hobby regularly and learn
+                        from small mistakes.</span>
+                    </li>
+
+                    <li>
+                        <span class="check">✓</span>
+                        <span><strong>Consistency over intensity:</strong>
+                        begin with a manageable routine and adjust
+                        it to suit your needs.</span>
+                    </li>
+                </ul>
+
+                <p class="neuro-footnote">
+                    Important: Neuroplasticity does not mean that
+                    meditation automatically rewires the brain or
+                    eliminates anxiety. Brain research is ongoing,
+                    and results vary.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PERSONALISE YOUR SESSION -->
+<section class="personalise-section" id="personalise" data-view="home">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">YOUR PERSONAL WELLNESS SPACE</span>
+            <h2>Create your meditation ritual</h2>
+            <p>
+                Select a style and duration that feel comfortable
+                for you. Start small and build your routine gradually.
+            </p>
+        </div>
+
+        <div class="session-panel">
+
+            <div class="form-title">
+                <h3>01. Choose your practice</h3>
+                <p>Pick one option for this session.</p>
+            </div>
+
+            <div class="practice-grid">
+
+                <div class="practice-option">
+                    <input type="radio" name="practice" id="practice-breath" checked>
+                    <label class="practice-card" for="practice-breath">
+                        <strong>🌬️ Breath awareness</strong>
+                        <small>Notice your natural breathing without forcing it.</small>
+                    </label>
+                </div>
+
+                <div class="practice-option">
+                    <input type="radio" name="practice" id="practice-mindful">
+                    <label class="practice-card" for="practice-mindful">
+                        <strong>🪷 Mindfulness</strong>
+                        <small>Observe thoughts and gently return to the present.</small>
+                    </label>
+                </div>
+
+                <div class="practice-option">
+                    <input type="radio" name="practice" id="practice-body">
+                    <label class="practice-card" for="practice-body">
+                        <strong>🌿 Body relaxation</strong>
+                        <small>Notice areas of tension and release them gently.</small>
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="form-title">
+                <h3>02. Set your duration</h3>
+                <p>Choose the time that fits your day.</p>
+            </div>
+
+            <div class="duration-grid">
+
+                <div class="duration-option">
+                    <input type="radio" name="duration" id="duration5" checked>
+                    <label class="duration-card" for="duration5">5 minutes</label>
+                </div>
+
+                <div class="duration-option">
+                    <input type="radio" name="duration" id="duration10">
+                    <label class="duration-card" for="duration10">10 minutes</label>
+                </div>
+
+                <div class="duration-option">
+                    <input type="radio" name="duration" id="duration15">
+                    <label class="duration-card" for="duration15">15 minutes</label>
+                </div>
+
+                <div class="duration-option">
+                    <input type="radio" name="duration" id="duration20">
+                    <label class="duration-card" for="duration20">20 minutes</label>
+                </div>
+
+            </div>
+
+            <a class="continue-btn" href="#breathing">
+                Continue to breathing practice →
+            </a>
+
+            <p style="font-size:11px; text-align:center; margin-top:12px;">
+                Demonstration interface: selections are not yet connected
+                to a dynamic timer or personalised session engine.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<!-- BREATHING EXPERIENCE -->
+<section class="biology-section" id="breathing" data-view="brain">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">FOLLOW YOUR NATURAL RHYTHM</span>
+            <h2>A gentle breathing moment</h2>
+            <p>
+                Sit comfortably, relax your shoulders and let your
+                breath move at a pace that feels natural.
+            </p>
+        </div>
+
+        <div style="display:grid; place-items:center; padding:20px;">
+            <div class="brain-stage" style="
+                width:250px;
+                height:250px;
+                background:radial-gradient(circle at 35% 30%,#dffcf3,#9cdbc9 50%,#8c78d5);
+                box-shadow:0 0 0 20px #a6daca30,0 0 0 45px #a6daca15;
+            ">
+                <div style="
+                    position:absolute;
+                    inset:0;
+                    display:grid;
+                    place-items:center;
+                    color:#26344a;
+                    font-size:18px;
+                    font-weight:bold;
+                    text-align:center;
+                ">
+                    Breathe gently
+                    <small style="display:block;font-size:12px;font-weight:normal;">
+                        Inhale · Exhale
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading" style="margin-top:25px;">
+            <p>
+                Notice your inhale and exhale. There is no need to
+                hold your breath or reach a particular breathing rate.
+                Return to normal breathing whenever you wish.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- HOBBY EXPLORER -->
+<section class="hobby-section" id="hobbies" data-view="hobbies">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">DISCOVER YOUR HAPPY PLACE</span>
+            <h2>Your hobbies can become mindful moments</h2>
+            <p>
+                Relaxation does not always mean sitting still.
+                Creative activities, movement, nature and social
+                connection can offer healthy ways to spend time.
+            </p>
+        </div>
+
+        <div class="hobby-grid">
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-art">
+                <label class="hobby-card" for="hobby-art">
+                    <span class="hobby-emoji">🎨</span>
+                    <h3>Drawing & painting</h3>
+                    <p>
+                        Focus on colors, shapes and the process
+                        rather than trying to make perfect art.
+                    </p>
+                    <span class="hobby-time">Try 10 minutes</span>
+                </label>
+            </div>
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-music">
+                <label class="hobby-card" for="hobby-music">
+                    <span class="hobby-emoji">🎵</span>
+                    <h3>Music & singing</h3>
+                    <p>
+                        Listen mindfully, sing along or explore
+                        an instrument you have always wanted to learn.
+                    </p>
+                    <span class="hobby-time">Try one song</span>
+                </label>
+            </div>
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-garden">
+                <label class="hobby-card" for="hobby-garden">
+                    <span class="hobby-emoji">🪴</span>
+                    <h3>Gardening & nature</h3>
+                    <p>
+                        Care for a plant, notice natural sounds
+                        or spend a few minutes outdoors.
+                    </p>
+                    <span class="hobby-time">Try 10–15 minutes</span>
+                </label>
+            </div>
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-writing">
+                <label class="hobby-card" for="hobby-writing">
+                    <span class="hobby-emoji">📓</span>
+                    <h3>Journaling</h3>
+                    <p>
+                        Write down what is on your mind, what
+                        matters today and one manageable next step.
+                    </p>
+                    <span class="hobby-time">Try 5 minutes</span>
+                </label>
+            </div>
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-walk">
+                <label class="hobby-card" for="hobby-walk">
+                    <span class="hobby-emoji">🚶</span>
+                    <h3>Walking & movement</h3>
+                    <p>
+                        Take a comfortable walk, stretch or try
+                        gentle dancing while noticing your surroundings.
+                    </p>
+                    <span class="hobby-time">Try 10 minutes</span>
+                </label>
+            </div>
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-craft">
+                <label class="hobby-card" for="hobby-craft">
+                    <span class="hobby-emoji">🧶</span>
+                    <h3>Crafts & puzzles</h3>
+                    <p>
+                        Try knitting, origami, model making or a
+                        puzzle to practise patience and concentration.
+                    </p>
+                    <span class="hobby-time">Try one small task</span>
+                </label>
+            </div>
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-reading">
+                <label class="hobby-card" for="hobby-reading">
+                    <span class="hobby-emoji">📚</span>
+                    <h3>Reading</h3>
+                    <p>
+                        Choose an enjoyable book and give yourself
+                        a break from constant notifications.
+                    </p>
+                    <span class="hobby-time">Try 10 minutes</span>
+                </label>
+            </div>
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-cook">
+                <label class="hobby-card" for="hobby-cook">
+                    <span class="hobby-emoji">🍳</span>
+                    <h3>Mindful cooking</h3>
+                    <p>
+                        Notice colors, aromas and textures while
+                        preparing a simple meal you enjoy.
+                    </p>
+                    <span class="hobby-time">Try one recipe</span>
+                </label>
+            </div>
+
+            <div class="hobby-option">
+                <input type="checkbox" id="hobby-social">
+                <label class="hobby-card" for="hobby-social">
+                    <span class="hobby-emoji">💬</span>
+                    <h3>Connect with people</h3>
+                    <p>
+                        Share a conversation, play a game or
+                        spend time with someone you trust.
+                    </p>
+                    <span class="hobby-time">Try one connection</span>
+                </label>
+            </div>
+
+        </div>
+
+        <p class="hobby-note">
+            Select the hobby cards you would like to try.
+            Your selections are visual only and are not saved.
+        </p>
+
+    </div>
+</section>
+
+<!-- WELLNESS TOOLKIT -->
+<section class="toolkit-section" id="toolkit" data-view="brain">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="eyebrow">YOUR EVERYDAY TOOLKIT</span>
+            <h2>Small actions for difficult moments</h2>
+            <p>
+                Explore practical techniques and choose what feels
+                comfortable. You do not need to do everything at once.
+            </p>
+        </div>
+
+        <div class="toolkit-grid">
+
+            <details class="tool-card">
+                <summary>🖐️ The 5–4–3–2–1 grounding exercise</summary>
+                <div class="tool-content">
+                    <p>Gently bring attention to your surroundings:</p>
+                    <ol>
+                        <li>Notice five things you can see.</li>
+                        <li>Notice four things you can feel.</li>
+                        <li>Notice three things you can hear.</li>
+                        <li>Notice two things you can smell, if available.</li>
+                        <li>Notice one thing you can taste, if available.</li>
+                    </ol>
+                    <p>
+                        Adapt or skip any step that feels uncomfortable.
+                    </p>
+                </div>
+            </details>
+
+            <details class="tool-card">
+                <summary>📝 The thought-unloading page</summary>
+                <div class="tool-content">
+                    <p>Try this simple journaling structure:</p>
+                    <ol>
+                        <li>What is taking up space in my mind?</li>
+                        <li>What part of this can I influence?</li>
+                        <li>What is one small action I can take?</li>
+                        <li>What can wait until another day?</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details class="tool-card">
+                <summary>💪 Progressive muscle relaxation</summary>
+                <div class="tool-content">
+                    <p>
+                        In a comfortable position, gently tense a
+                        muscle group for a few seconds and release it.
+                        Move through your hands, shoulders and legs
+                        if that feels suitable.
+                    </p>
+                    <p>
+                        Avoid tensing painful or injured areas.
+                        You can simply notice and release tension instead.
+                    </p>
+                </div>
+            </details>
+
+            <details class="tool-card">
+                <summary>📵 A digital sunset</summary>
+                <div class="tool-content">
+                    <p>Try a gentle evening reset:</p>
+                    <ol>
+                        <li>Silence nonessential notifications.</li>
+                        <li>Put your phone away for a short period.</li>
+                        <li>Choose a book, relaxing music or a hobby.</li>
+                        <li>Keep a regular bedtime where possible.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details class="tool-card">
+                <summary>🌱 Build a tiny habit</summary>
+                <div class="tool-content">
+                    <p>
+                        Connect a new habit to an existing routine.
+                        For example, take three comfortable mindful
+                        breaths after brushing your teeth or write
+                        one journal sentence after dinner.
+                    </p>
+                    <p>
+                        Missing a day is normal. Return when you can
+                        rather than aiming for perfection.
+                    </p>
+                </div>
+            </details>
+
+            <details class="tool-card">
+                <summary>🤝 Reach out instead of isolating</summary>
+                <div class="tool-content">
+                    <p>
+                        Send a message to someone you trust, take a
+                        walk with a friend or join a group around a
+                        hobby you enjoy.
+                    </p>
+                    <p>
+                        If anxiety or stress keeps affecting everyday
+                        life, a qualified mental health professional
+                        can help you explore additional support.
+                    </p>
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="support-section" id="support" data-view="home">
+    <div class="container support-box">
+
+        <span class="eyebrow">A GENTLE REMINDER</span>
+
+        <h2>You do not have to earn your rest.</h2>
+
+        <p>
+            Some days, progress means learning something new.
+            On other days, it means taking a break or asking for help.
+            Both are valid. Choose one small, kind action for yourself today.
+        </p>
+
+        <a class="btn btn-primary" href="#personalise">
+            Make space for yourself →
+        </a>
+
+        <a class="btn btn-light" href="#hobbies">
+            Explore a hobby
+        </a>
+
+        <p style="font-size:12px; margin-top:22px;">
+            This website is for general education and wellbeing,
+            not diagnosis or medical treatment. If meditation increases
+            distress, stop and try a different grounding activity.
+            Seek professional help when needed.
+        </p>
+
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+                <a class="logo" href="#home">serenity<span>.</span></a>
+                <p>
+                    A science-inspired wellness space for mindfulness,
+                    healthy habits, creative hobbies and everyday calm.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <a href="#biology">Brain & body</a>
+                <a href="#neuroplasticity">Neuroplasticity</a>
+                <a href="#personalise">Meditation</a>
+                <a href="#hobbies">Hobby explorer</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Learn more</h3>
+                <a href="https://www.nccih.nih.gov/health/meditation-and-mindfulness-effectiveness-and-safety"
+                   target="_blank" rel="noopener noreferrer">
+                    Meditation research ↗
+                </a>
+                <a href="https://www.nccih.nih.gov/health/relaxation-techniques-what-you-need-to-know"
+                   target="_blank" rel="noopener noreferrer">
+                    Relaxation techniques ↗
+                </a>
+                <a href="#toolkit">Wellness toolkit</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © 2026 Serenity Wellness. Educational information only.
+                Not a substitute for professional healthcare.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+
+<script>
+/* =========================================================
+   SERENITY — FOUR-PAGE ANIMATED NAVIGATION
+   No libraries or build tools required.
+========================================================= */
+(() => {
+    const pageButtons = [...document.querySelectorAll('[data-page-button]')];
+    const pageSections = [...document.querySelectorAll('main section[data-view]')];
+    const transitionLayer = document.getElementById('pageTransition');
+    const header = document.querySelector('header');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const pageTargets = {
+        home: 'home',
+        brain: 'biology',
+        neuro: 'neuroplasticity',
+        hobbies: 'hobbies'
+    };
+
+    let activePage = 'home';
+    let switchToken = 0;
+
+    function setActiveButton(page) {
+        pageButtons.forEach((button) => {
+            const active = button.dataset.pageButton === page;
+            button.classList.toggle('active', active);
+            button.setAttribute('aria-pressed', String(active));
+        });
+    }
+
+    function showPageSections(page) {
+        pageSections.forEach((section) => {
+            const visible = section.dataset.view === page;
+            section.classList.toggle('is-visible', visible);
+            section.setAttribute('aria-hidden', String(!visible));
+        });
+    }
+
+    function scrollToTarget(targetId) {
+        const target = document.getElementById(targetId || pageTargets[activePage]);
+        if (!target) {
+            window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+            return;
+        }
+        const headerOffset = header ? header.offsetHeight + 12 : 12;
+        const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion ? 'auto' : 'smooth' });
+    }
+
+    function switchPage(page, targetId, shouldScroll = true) {
+        if (!pageTargets[page]) return;
+        const token = ++switchToken;
+        const samePage = page === activePage;
+
+        if (samePage) {
+            if (shouldScroll) scrollToTarget(targetId || pageTargets[page]);
+            return;
+        }
+
+        activePage = page;
+        document.body.dataset.activePage = page;
+        setActiveButton(page);
+
+        if (reducedMotion) {
+            showPageSections(page);
+            if (shouldScroll) scrollToTarget(targetId || pageTargets[page]);
+            return;
+        }
+
+        // Cover the change with a colorful portal, then reveal the new page.
+        transitionLayer.className = `page-transition is-active to-${page}`;
+        window.setTimeout(() => {
+            if (token !== switchToken) return;
+            showPageSections(page);
+            if (shouldScroll) scrollToTarget(targetId || pageTargets[page]);
+        }, 260);
+
+        window.setTimeout(() => {
+            if (token !== switchToken) return;
+            transitionLayer.className = 'page-transition';
+        }, 790);
+    }
+
+    pageButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            switchPage(button.dataset.pageButton, button.dataset.target || pageTargets[button.dataset.pageButton]);
+        });
+    });
+
+    // Keep all existing in-page links working, even when their target belongs
+    // to another one of the four page views.
+    document.addEventListener('click', (event) => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) return;
+        const targetId = decodeURIComponent(link.getAttribute('href').slice(1));
+        if (!targetId) return;
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        const targetSection = target.matches('section[data-view]')
+            ? target
+            : target.closest('section[data-view]');
+        if (!targetSection) return;
+
+        const targetPage = targetSection.dataset.view;
+        event.preventDefault();
+        if (targetPage !== activePage) {
+            switchPage(targetPage, targetId);
+        } else {
+            scrollToTarget(targetId);
+        }
+        history.replaceState(null, '', `#${targetId}`);
+    });
+
+    // Restore the correct page if the browser opens a bookmarked section.
+    const initialHash = decodeURIComponent(window.location.hash.slice(1));
+    if (initialHash) {
+        const initialTarget = document.getElementById(initialHash);
+        const initialSection = initialTarget && (initialTarget.matches('section[data-view]')
+            ? initialTarget
+            : initialTarget.closest('section[data-view]'));
+        if (initialSection) {
+            activePage = initialSection.dataset.view;
+            document.body.dataset.activePage = activePage;
+            setActiveButton(activePage);
+            showPageSections(activePage);
+            window.addEventListener('load', () => scrollToTarget(initialHash), { once: true });
+        } else {
+            showPageSections('home');
+        }
+    } else {
+        showPageSections('home');
+    }
+
+    // A subtle header depth effect after scrolling.
+    window.addEventListener('scroll', () => {
+        if (header) header.classList.toggle('nav-scrolled', window.scrollY > 12);
+    }, { passive: true });
+})();
+</script>
+
+</body>
+</html>
